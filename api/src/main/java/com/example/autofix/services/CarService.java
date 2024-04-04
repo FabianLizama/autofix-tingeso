@@ -30,15 +30,18 @@ public class CarService {
     }
 
     // Update
-    public CarEntity updateCar(CarEntity car) {
-        return carRepository.save(car);
+    public CarEntity updateCar(CarEntity car) throws Exception{
+        try{
+            CarEntity carUpdated = carRepository.save(car);
+            return carUpdated;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
-    
     // Delete
-    public boolean deleteCar(Long id) throws Exception {
+    public void deleteCar(Long id) throws Exception {
         try{
             carRepository.deleteById(id);
-            return true;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

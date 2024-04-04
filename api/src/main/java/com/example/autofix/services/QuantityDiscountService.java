@@ -26,15 +26,19 @@ public class QuantityDiscountService {
     }
 
     // Update
-    public QuantityDiscountEntity updateQuantityDiscount(QuantityDiscountEntity quantityDiscount) {
-        return quantityDiscountRepository.save(quantityDiscount);
+    public QuantityDiscountEntity updateQuantityDiscount(QuantityDiscountEntity quantityDiscount) throws Exception{
+        try{
+            QuantityDiscountEntity quantityDiscountUpdated = quantityDiscountRepository.save(quantityDiscount);
+            return quantityDiscountUpdated;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }   
     }
     
     // Delete
-    public boolean deleteQuantityDiscount(Long id) throws Exception {
+    public void deleteQuantityDiscount(Long id) throws Exception {
         try{
             quantityDiscountRepository.deleteById(id);
-            return true;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

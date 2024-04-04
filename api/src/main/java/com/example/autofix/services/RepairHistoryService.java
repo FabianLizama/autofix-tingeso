@@ -26,15 +26,19 @@ public class RepairHistoryService {
     }
 
     // Update
-    public RepairHistoryEntity updateRepairHistory(RepairHistoryEntity repairHistory) {
-        return repairHistoryRepository.save(repairHistory);
+    public RepairHistoryEntity updateRepairHistory(RepairHistoryEntity repairHistory) throws Exception{
+        try{
+            RepairHistoryEntity repairHistoryUpdated = repairHistoryRepository.save(repairHistory);
+            return repairHistoryUpdated;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
     
     // Delete
-    public boolean deleteRepairHistory(Long id) throws Exception {
+    public void deleteRepairHistory(Long id) throws Exception {
         try{
             repairHistoryRepository.deleteById(id);
-            return true;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

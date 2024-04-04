@@ -3,6 +3,7 @@ package com.example.autofix.services;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.example.autofix.entities.ChargueByTypeEntity;
 import com.example.autofix.repositories.ChargueByTypeRepository;
 
@@ -26,15 +27,19 @@ public class ChargueByTypeService {
     }
 
     // Update
-    public ChargueByTypeEntity updateChargueByType(ChargueByTypeEntity chargueByType) {
-        return chargueByTypeRepository.save(chargueByType);
+    public ChargueByTypeEntity updateChargueByType(ChargueByTypeEntity chargueByType) throws Exception{
+        try{
+            ChargueByTypeEntity chargueByTypeUpdated = chargueByTypeRepository.save(chargueByType);
+            return chargueByTypeUpdated;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
     
     // Delete
-    public boolean deleteChargueByType(Long id) throws Exception {
+    public void deleteChargueByType(Long id) throws Exception {
         try{
             chargueByTypeRepository.deleteById(id);
-            return true;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

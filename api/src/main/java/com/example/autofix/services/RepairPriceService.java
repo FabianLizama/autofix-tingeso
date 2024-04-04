@@ -26,15 +26,19 @@ public class RepairPriceService {
     }
 
     // Update
-    public RepairPriceEntity updateRepairPrice(RepairPriceEntity repairPrice) {
-        return RepairPriceRepository.save(repairPrice);
+    public RepairPriceEntity updateRepairPrice(RepairPriceEntity repairPrice) throws Exception{
+        try{
+            RepairPriceEntity repairPriceUpdated = RepairPriceRepository.save(repairPrice);
+            return repairPriceUpdated;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
     
     // Delete
-    public boolean deleteRepairPrice(Long id) throws Exception {
+    public void deleteRepairPrice(Long id) throws Exception {
         try{
             RepairPriceRepository.deleteById(id);
-            return true;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
