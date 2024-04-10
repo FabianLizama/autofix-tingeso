@@ -1,12 +1,18 @@
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
+import Home from './components/Home'
 import NavBar from './components/NavBar'
-import Container from '@mui/material/Container'
 
 function App() {
   return (
-    <Container>
-      <NavBar></NavBar>
-    </Container>
+    <Router>
+      <div>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
