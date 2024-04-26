@@ -38,6 +38,16 @@ public class ChargueByTypeController {
         return ResponseEntity.ok(chargueByTypeService.getAllChargueByTypes());
     }
 
+    @GetMapping("/km")
+    public ResponseEntity<ArrayList<ChargueByTypeEntity>> getAllKmChargueByTypes() {
+        return ResponseEntity.ok(chargueByTypeService.getAllKmChargueByTypes());
+    }
+
+    @GetMapping("/antiq")
+    public ResponseEntity<ArrayList<ChargueByTypeEntity>> getAllAntiqChargueByTypes() {
+        return ResponseEntity.ok(chargueByTypeService.getAllAntiqChargueByTypes());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ChargueByTypeEntity> getChargueByTypeById(@PathVariable Long id) {
         return ResponseEntity.ok(chargueByTypeService.getChargueByTypeById(id));

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name = "repair_price")
+@Table(name = "chargue_by_type")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,10 +25,10 @@ public class ChargueByTypeEntity {
     private int antiqStart;
     private int antiqEnd;
 
-    private float sedanPercent;
-    private float hatchPercent;
-    private float suvPercent;
-    private float pickupPercent;
-    private float vanPercent;
+    private double sedanPercent;
+    private double hatchPercent;
+    private double suvPercent;
+    private double pickupPercent;
+    private double vanPercent;
 
 }

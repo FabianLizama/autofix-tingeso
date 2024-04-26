@@ -8,6 +8,9 @@ import com.example.autofix.repositories.RepairRepository;
 
 @Service
 public class RepairService {
+
+    double IVA = 0.19;
+
     @Autowired
     RepairRepository repairRepository;
 

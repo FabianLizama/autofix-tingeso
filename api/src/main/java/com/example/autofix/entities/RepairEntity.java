@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name = "repair_price")
+@Table(name = "repair")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,4 +18,5 @@ public class RepairEntity {
 
     private String name;
     private String description;
+    private boolean payed;
 }

@@ -19,8 +19,12 @@ public class RepairHistoryEntity {
     private Long id;
 
     private LocalDateTime admissionDateTime;
-    private int repairTypeId;
-    private Long totalAmount;
+    private Long repairTypeId;
+    private Long cost;
     private LocalDateTime endDateTime;
     private LocalDateTime deliveryDateTime;
+    private Long carId;
+    private Long rechargues;
+    private Long discount;
+    private Long totalAmount;
 }

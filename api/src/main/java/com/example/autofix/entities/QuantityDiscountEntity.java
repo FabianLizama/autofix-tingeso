@@ -16,11 +16,10 @@ public class QuantityDiscountEntity {
     @Column(unique = true, nullable = false)
     private Long id;
 
-    private Long carId;
     private int numRepairsStart;
     private int numRepairsEnd;
-    private float gasPercent;
-    private float dieselPercent;
-    private float hybridPercent;
-    private float electricPercent;
+    private double gasPercent;
+    private double dieselPercent;
+    private double hybridPercent;
+    private double electricPercent;
 }

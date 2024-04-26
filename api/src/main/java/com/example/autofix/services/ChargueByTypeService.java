@@ -22,6 +22,14 @@ public class ChargueByTypeService {
         return (ArrayList<ChargueByTypeEntity>) chargueByTypeRepository.findAll();
     }
 
+    public ArrayList<ChargueByTypeEntity> getAllKmChargueByTypes() {
+        return (ArrayList<ChargueByTypeEntity>) chargueByTypeRepository.findBySurchargeType("km");
+    }
+
+    public ArrayList<ChargueByTypeEntity> getAllAntiqChargueByTypes() {
+        return (ArrayList<ChargueByTypeEntity>) chargueByTypeRepository.findBySurchargeType("antiquity");
+    }
+
     public ChargueByTypeEntity getChargueByTypeById(Long id) {
         return chargueByTypeRepository.findById(id).orElse(null);
     }
