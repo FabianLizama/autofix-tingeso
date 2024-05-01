@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.autofix.controllers.CarControllerTest" time="1.58" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.autofix.repositories.CarRepositoryTest" time="1.8" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -67,9 +67,9 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[AutoFix] "/>
   </properties>
-  <testcase name="testUpdateCar_Exception" classname="com.example.autofix.controllers.CarControllerTest" time="0.412">
-    <system-out><![CDATA[2024-05-01T18:04:14.755-04:00  INFO 23716 --- [AutoFix] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.autofix.controllers.CarControllerTest]: CarControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-05-01T18:04:14.819-04:00  INFO 23716 --- [AutoFix] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.autofix.AutoFixApplication for test class com.example.autofix.controllers.CarControllerTest
+  <testcase name="updateCarTest" classname="com.example.autofix.repositories.CarRepositoryTest" time="0.22">
+    <system-out><![CDATA[2024-05-01T18:04:19.844-04:00  INFO 23716 --- [AutoFix] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.autofix.repositories.CarRepositoryTest]: CarRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-01T18:04:19.894-04:00  INFO 23716 --- [AutoFix] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.autofix.AutoFixApplication for test class com.example.autofix.repositories.CarRepositoryTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -79,17 +79,49 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.4)
 
-2024-05-01T18:04:14.864-04:00  INFO 23716 --- [AutoFix] [           main] c.e.a.controllers.CarControllerTest      : Starting CarControllerTest using Java 17.0.10 with PID 23716 (started by fliza in D:\code\autofix-tingeso\api)
-2024-05-01T18:04:14.864-04:00  INFO 23716 --- [AutoFix] [           main] c.e.a.controllers.CarControllerTest      : No active profile set, falling back to 1 default profile: "default"
-2024-05-01T18:04:15.635-04:00  INFO 23716 --- [AutoFix] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2024-05-01T18:04:15.636-04:00  INFO 23716 --- [AutoFix] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2024-05-01T18:04:15.639-04:00  INFO 23716 --- [AutoFix] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
-2024-05-01T18:04:15.661-04:00  INFO 23716 --- [AutoFix] [           main] c.e.a.controllers.CarControllerTest      : Started CarControllerTest in 0.836 seconds (process running for 12.487)
+2024-05-01T18:04:19.936-04:00  INFO 23716 --- [AutoFix] [           main] c.e.a.repositories.CarRepositoryTest     : Starting CarRepositoryTest using Java 17.0.10 with PID 23716 (started by fliza in D:\code\autofix-tingeso\api)
+2024-05-01T18:04:19.936-04:00  INFO 23716 --- [AutoFix] [           main] c.e.a.repositories.CarRepositoryTest     : The following 1 profile is active: "test"
+2024-05-01T18:04:20.111-04:00  INFO 23716 --- [AutoFix] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-01T18:04:20.141-04:00  INFO 23716 --- [AutoFix] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 6 JPA repository interfaces.
+2024-05-01T18:04:20.175-04:00  INFO 23716 --- [AutoFix] [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2024-05-01T18:04:20.230-04:00  INFO 23716 --- [AutoFix] [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:c9355c01-09fa-4721-9c33-39c760f1ea64;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2024-05-01T18:04:20.278-04:00  INFO 23716 --- [AutoFix] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-01T18:04:20.288-04:00  INFO 23716 --- [AutoFix] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-01T18:04:20.307-04:00  INFO 23716 --- [AutoFix] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-01T18:04:20.311-04:00  WARN 23716 --- [AutoFix] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-01T18:04:20.552-04:00  INFO 23716 --- [AutoFix] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table car (id bigint generated by default as identity, brand varchar(255), fab_year integer not null, license_plate varchar(255), model varchar(255), motor_type varchar(255), name_owner varchar(255), num_seats integer not null, rut varchar(255), type varchar(255), primary key (id))
+Hibernate: create table chargue_by_type (id bigint generated by default as identity, antiq_end integer not null, antiq_start integer not null, hatch_percent float(53) not null, km_end integer not null, km_start integer not null, pickup_percent float(53) not null, sedan_percent float(53) not null, surcharge_type varchar(255), suv_percent float(53) not null, van_percent float(53) not null, primary key (id))
+Hibernate: create table quantity_discount (id bigint generated by default as identity, diesel_percent float(53) not null, electric_percent float(53) not null, gas_percent float(53) not null, hybrid_percent float(53) not null, num_repairs_end integer not null, num_repairs_start integer not null, primary key (id))
+Hibernate: create table repair (id bigint generated by default as identity, description varchar(255), name varchar(255), primary key (id))
+Hibernate: create table repair_history (id bigint generated by default as identity, admission_date_time timestamp(6), car_id bigint, cost bigint, delivery_date_time timestamp(6), discount bigint, end_date_time timestamp(6), rechargues bigint, repair_type_id bigint, total_amount bigint, primary key (id))
+Hibernate: create table repair_price (id bigint generated by default as identity, diesel_price integer not null, electric_price integer not null, gasoline_price integer not null, hybrid_price integer not null, repair_type_id bigint, primary key (id))
+2024-05-01T18:04:20.565-04:00  INFO 23716 --- [AutoFix] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-01T18:04:20.874-04:00  INFO 23716 --- [AutoFix] [           main] c.e.a.repositories.CarRepositoryTest     : Started CarRepositoryTest in 0.976 seconds (process running for 17.7)
+Hibernate: insert into car (brand,fab_year,license_plate,model,motor_type,name_owner,num_seats,rut,type,id) values (?,?,?,?,?,?,?,?,?,default)
 ]]></system-out>
   </testcase>
-  <testcase name="testUpdateCar" classname="com.example.autofix.controllers.CarControllerTest" time="0.157"/>
-  <testcase name="testGetAllCars" classname="com.example.autofix.controllers.CarControllerTest" time="0.022"/>
-  <testcase name="testGetCarById" classname="com.example.autofix.controllers.CarControllerTest" time="0.011"/>
-  <testcase name="testSaveCar" classname="com.example.autofix.controllers.CarControllerTest" time="0.009"/>
-  <testcase name="testDeleteCar_Exception" classname="com.example.autofix.controllers.CarControllerTest" time="0.011"/>
+  <testcase name="deleteCarTest" classname="com.example.autofix.repositories.CarRepositoryTest" time="0.104">
+    <system-out><![CDATA[Hibernate: insert into car (brand,fab_year,license_plate,model,motor_type,name_owner,num_seats,rut,type,id) values (?,?,?,?,?,?,?,?,?,default)
+]]></system-out>
+  </testcase>
+  <testcase name="findByLicensePlateTest" classname="com.example.autofix.repositories.CarRepositoryTest" time="0.357">
+    <system-out><![CDATA[Hibernate: insert into car (brand,fab_year,license_plate,model,motor_type,name_owner,num_seats,rut,type,id) values (?,?,?,?,?,?,?,?,?,default)
+Hibernate: select ce1_0.id,ce1_0.brand,ce1_0.fab_year,ce1_0.license_plate,ce1_0.model,ce1_0.motor_type,ce1_0.name_owner,ce1_0.num_seats,ce1_0.rut,ce1_0.type from car ce1_0 where ce1_0.license_plate=?
+]]></system-out>
+  </testcase>
+  <testcase name="saveCarTest" classname="com.example.autofix.repositories.CarRepositoryTest" time="0.015">
+    <system-out><![CDATA[Hibernate: insert into car (brand,fab_year,license_plate,model,motor_type,name_owner,num_seats,rut,type,id) values (?,?,?,?,?,?,?,?,?,default)
+]]></system-out>
+  </testcase>
+  <testcase name="getCarByIdTest" classname="com.example.autofix.repositories.CarRepositoryTest" time="0.017">
+    <system-out><![CDATA[Hibernate: insert into car (brand,fab_year,license_plate,model,motor_type,name_owner,num_seats,rut,type,id) values (?,?,?,?,?,?,?,?,?,default)
+]]></system-out>
+  </testcase>
+  <testcase name="findAllCarsTest" classname="com.example.autofix.repositories.CarRepositoryTest" time="0.032">
+    <system-out><![CDATA[Hibernate: insert into car (brand,fab_year,license_plate,model,motor_type,name_owner,num_seats,rut,type,id) values (?,?,?,?,?,?,?,?,?,default)
+Hibernate: insert into car (brand,fab_year,license_plate,model,motor_type,name_owner,num_seats,rut,type,id) values (?,?,?,?,?,?,?,?,?,default)
+Hibernate: select ce1_0.id,ce1_0.brand,ce1_0.fab_year,ce1_0.license_plate,ce1_0.model,ce1_0.motor_type,ce1_0.name_owner,ce1_0.num_seats,ce1_0.rut,ce1_0.type from car ce1_0
+]]></system-out>
+  </testcase>
 </testsuite>

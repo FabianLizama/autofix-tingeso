@@ -21,7 +21,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import BuildIcon from "@mui/icons-material/Build";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
 import { ListItem } from '@mui/material';
-import RegisterListItems from './RegisterListItems';
 import ListItemText from "@mui/material/ListItemText";
 
 const drawerWidth = 250;
