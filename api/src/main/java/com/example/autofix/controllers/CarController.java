@@ -45,7 +45,7 @@ public class CarController {
 
     // Update
     @PutMapping("/")
-    public ResponseEntity<CarEntity> updateCar(@RequestBody CarEntity car) throws Exception{
+    public ResponseEntity<CarEntity> updateCar(@RequestBody CarEntity car) throws Exception {
         try {
             CarEntity carUpdated = carService.updateCar(car);
             return ResponseEntity.ok(carUpdated);

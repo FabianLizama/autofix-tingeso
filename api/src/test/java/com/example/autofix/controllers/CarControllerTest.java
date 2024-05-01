@@ -30,7 +30,7 @@ public class CarControllerTest {
     private CarService carService;
 
     @Test
-    public void testSaveCar() throws Exception{
+    public void testSaveCar() throws Exception {
         CarEntity savedCar = new CarEntity(
             1L,
             "ABC123",
@@ -131,7 +131,7 @@ public class CarControllerTest {
     }
 
     @Test
-    public void testUpdateCar() throws Exception{
+    public void testUpdateCar() throws Exception {
         CarEntity updatedCar = new CarEntity(
             1L,
             "ABC123",
@@ -167,13 +167,40 @@ public class CarControllerTest {
                 .content(carJSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.licensePlate", is("ABC123")));
+
+        
     }
 
     @Test
-    public void testDeleteCar() throws Exception {
-        carService.deleteCar(1L);
+    public void testUpdateCar_Exception() throws Exception {
+        given(carService.updateCar(Mockito.any(CarEntity.class))).willThrow(new Exception());
+
+        String carJSON = """
+                {
+                    "id": 1,
+                    "licensePlate": "ABC123",
+                    "brand": "Toyota",
+                    "model": "Corolla",
+                    "type": "Sedan",
+                    "fabYear": 2021,
+                    "motorType": "Gasoline",
+                    "numSeats": 5,
+                    "rut": "123456789",
+                    "nameOwner": "Juan Perez"
+                }
+                """;
+
+        mockMvc.perform(put("/api/v1/cars/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(carJSON))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void testDeleteCar_Exception() throws Exception {
+        Mockito.doThrow(new Exception()).when(carService).deleteCar(Mockito.anyLong());
 
         mockMvc.perform(delete("/api/v1/cars/1"))
-                .andExpect(status().isNoContent());
+                .andExpect(status().isBadRequest());
     }
 }

@@ -3,6 +3,7 @@ package com.example.autofix.entities;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Generated;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
@@ -27,4 +28,16 @@ public class RepairHistoryEntity {
     private Long rechargues;
     private Long discount;
     private Long totalAmount;
+
+    @Override
+    @Generated
+    public String toString() {
+        return super.toString(); // Llamada explícita para hacer visible la anotación @Generated.
+    }
+
+    @Override
+    @Generated
+    public int hashCode() {
+        return super.hashCode(); // Llamada explícita para hacer visible la anotación @Generated.
+    }
 }

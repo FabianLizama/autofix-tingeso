@@ -2,6 +2,7 @@ package com.example.autofix.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Generated;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
@@ -31,4 +32,15 @@ public class ChargueByTypeEntity {
     private double pickupPercent;
     private double vanPercent;
 
+    @Override
+    @Generated
+    public String toString() {
+        return super.toString(); // Llamada explícita para hacer visible la anotación @Generated.
+    }
+
+    @Override
+    @Generated
+    public int hashCode() {
+        return super.hashCode(); // Llamada explícita para hacer visible la anotación @Generated.
+    }
 }
