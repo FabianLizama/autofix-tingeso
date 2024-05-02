@@ -155,6 +155,11 @@ export default function NavBar() {
               (text, index) => (
                 <ListItem key={text} disablePadding sx={{ display: "block" }}>
                   <ListItemButton
+                    onClick={() => {
+                      if (index === 0)
+                        navigate("/register/reparation");
+                      else navigate("/register/car");
+                    }}
                     sx={{
                       minHeight: 48,
                       justifyContent: open ? "initial" : "center",
