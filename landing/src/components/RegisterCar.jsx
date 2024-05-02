@@ -26,8 +26,7 @@ function RegisterCar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form data:", formData);
-    // TO-DO enviar datos
+    carService.create(formData);
   };
 
   return (
@@ -36,9 +35,7 @@ function RegisterCar() {
       style={{
         marginTop: "50px",
         padding: "20px",
-        backgroundColor: "#fff",
         borderRadius: "8px",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
       }}
     >
       <form onSubmit={handleSubmit}>
@@ -94,12 +91,12 @@ function RegisterCar() {
         <FormControl variant="outlined" fullWidth margin="normal">
           <InputLabel id="type-label">Tipo de auto</InputLabel>
           <Select
-            name="carType"
+            name="type"
             labelId="type-label"
             id="type-select"
             label="Tipo de auto"
             className="text-start"
-            value={formData.carType}
+            value={formData.type}
             onChange={handleChange}
           >
             <MenuItem value={"sedan"}>Sedan</MenuItem>
