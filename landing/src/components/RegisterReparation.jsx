@@ -8,6 +8,7 @@ import {
   Box,
   Typography,
   Button,
+  Alert
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import repairService from "../services/repair.service";
@@ -15,6 +16,7 @@ import repairHistoryService from "../services/repair-history.service";
 
 function RegisterReparation() {
   const [repairTypes, setRepairTypes] = useState([]);
+  const [alert, setAlert] = useState({ show: false, message: "" });
   
   // Se obtienen los tipos de reparaciones de la base de datos
   useEffect(() => {
@@ -42,8 +44,22 @@ function RegisterReparation() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await repairHistoryService.createRepair(formData.licensePlate, formData.repairTypeId);
-    console.log(response);
+    try {
+      const response = await repairHistoryService.createRepair(
+        formData.licensePlate,
+        formData.repairTypeId
+      );
+      console.log(response);
+      const totalAmount = response.data.totalAmount;
+      const message = `Reparación registrada con éxito.\n Total calculado: $${totalAmount}.\n Fórmula: Total = Precio: $${response.data.cost} - Recargos: $${response.data.rechargues} + Descuentos: $${response.data.discount} + IVA.`;
+      setAlert({ show: true, message: message });
+    } catch (error) {
+      console.error("Error al registrar la reparación:", error);
+      setAlert({
+        show: true,
+        message: "Error al registrar la reparación. Intente nuevamente.",
+      });
+    }
   };
 
   return (
@@ -56,6 +72,11 @@ function RegisterReparation() {
       }}
     >
       <form onSubmit={handleSubmit}>
+        {alert.show && (
+          <Alert severity="success" style={{ marginBottom: "20px" }}>
+            {alert.message}
+          </Alert>
+        )}
         <Typography variant="h4" component="h1" gutterBottom>
           Registrar reparación
         </Typography>
