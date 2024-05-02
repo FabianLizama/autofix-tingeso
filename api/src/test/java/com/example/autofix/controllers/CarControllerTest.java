@@ -41,7 +41,8 @@ public class CarControllerTest {
             "Gasoline",
             5,
             "123456789",
-            "Juan Perez"
+            "Juan Perez",
+            100
         );
 
         given(carService.saveCar(Mockito.any(CarEntity.class))).willReturn(savedCar);
@@ -56,7 +57,8 @@ public class CarControllerTest {
                     "motorType": "Gasoline",
                     "numSeats": 5,
                     "rut": "123456789",
-                    "nameOwner": "Juan Perez"
+                    "nameOwner": "Juan Perez",
+                    "km": 100
                 }
                 """;
         mockMvc.perform(post("/api/v1/cars/")
@@ -79,7 +81,8 @@ public class CarControllerTest {
             "Gasoline",
             5,
             "123456789",
-            "Juan Perez"
+            "Juan Perez",
+            100
         );
 
         CarEntity car2 = new CarEntity(
@@ -92,7 +95,8 @@ public class CarControllerTest {
             "Gasoline",
             5,
             "987654321",
-            "Maria Lopez"
+            "Maria Lopez",
+            100
         );
 
         ArrayList<CarEntity> carList = new ArrayList<>(Arrays.asList(car1, car2));
@@ -119,7 +123,8 @@ public class CarControllerTest {
             "Gasoline",
             5,
             "123456789",
-            "Juan Perez"
+            "Juan Perez",
+            100
         );
 
         given(carService.getCarById(1L)).willReturn(car);
@@ -142,7 +147,8 @@ public class CarControllerTest {
             "Gasoline",
             5,
             "123456789",
-            "Juan Perez"
+            "Juan Perez",
+            100
         );
 
         given(carService.updateCar(Mockito.any(CarEntity.class))).willReturn(updatedCar);
@@ -158,7 +164,8 @@ public class CarControllerTest {
                     "motorType": "Gasoline",
                     "numSeats": 5,
                     "rut": "123456789",
-                    "nameOwner": "Juan Perez"
+                    "nameOwner": "Juan Perez",
+                    "km": 100
                 }
                 """;
         
@@ -186,7 +193,8 @@ public class CarControllerTest {
                     "motorType": "Gasoline",
                     "numSeats": 5,
                     "rut": "123456789",
-                    "nameOwner": "Juan Perez"
+                    "nameOwner": "Juan Perez",
+                    "km": 100
                 }
                 """;
 

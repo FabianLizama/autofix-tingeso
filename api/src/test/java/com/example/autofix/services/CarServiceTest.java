@@ -39,6 +39,7 @@ public class CarServiceTest {
         car.setNumSeats(5);
         car.setRut("123456789");
         car.setNameOwner("Juan Perez");
+        car.setKm(100);
 
         when(carRepository.save(any(CarEntity.class))).thenReturn(car);
     }

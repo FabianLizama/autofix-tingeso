@@ -33,7 +33,8 @@ class CarRepositoryTest {
             "Gasoline",
             5,
             "123456789",
-            "John Doe"
+            "John Doe",
+            100
         );
 
         // when
@@ -57,7 +58,8 @@ class CarRepositoryTest {
             "Gasoline",
             5,
             "123456789",
-            "John Doe"
+            "John Doe",
+            100
         );
         entityManager.persist(car1);
 
@@ -71,7 +73,8 @@ class CarRepositoryTest {
             "Gasoline",
             5,
             "123456789",
-            "John Doe"
+            "John Doe",
+            100
         );
         entityManager.persistAndFlush(car2);
 
@@ -95,7 +98,8 @@ class CarRepositoryTest {
             "Gasoline",
             5,
             "123456789",
-            "John Doe"
+            "John Doe",
+            100
         );
         entityManager.persistAndFlush(car);
 
@@ -120,7 +124,8 @@ class CarRepositoryTest {
             "Gasoline",
             5,
             "123456789",
-            "John Doe"
+            "John Doe",
+            100
         );
         entityManager.persistAndFlush(car);
         
@@ -145,7 +150,8 @@ class CarRepositoryTest {
             "Gasoline",
             5,
             "123456789",
-            "John Doe"
+            "John Doe",
+            100
         );
         entityManager.persistAndFlush(car);
 
@@ -171,7 +177,8 @@ class CarRepositoryTest {
             "Gasoline",
             5,
             "123456789",
-            "John Doe"
+            "John Doe",
+            100
         );
         entityManager.persistAndFlush(car);
 
