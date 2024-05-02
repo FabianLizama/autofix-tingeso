@@ -23,6 +23,11 @@ public class RepairHistoryService {
     @Autowired
     ChargueByTypeService chargueByTypeService;
 
+    @Autowired
+    QuantityDiscountService QuantityDiscountService;
+
+    double IVA = 0.19;
+
     // Create
     public RepairHistoryEntity saveRepairHistory(RepairHistoryEntity repairHistory) {
         return repairHistoryRepository.save(repairHistory);
@@ -39,10 +44,25 @@ public class RepairHistoryService {
         newRepairHistory.setCost((long) price);
 
         double km_rechargue = chargueByTypeService.getChargueKmByType(car.getKm(), car.getType());
+
         int actualYear = LocalDateTime.now().getYear();
-        double antiquity_rechargue = chargueByTypeService.getChargueAntiqByType(actualYear-car.getFabYear(), car.getType());
-        System.out.println("Price: " + antiquity_rechargue);
-        return newRepairHistory;
+        Double antiquity_rechargue = chargueByTypeService.getChargueAntiqByType(actualYear-car.getFabYear(), car.getType());
+        
+        Long rechargues = (long) (price*km_rechargue+price*antiquity_rechargue);
+        newRepairHistory.setRechargues(rechargues);
+
+        int repairNum = getTotalRepairsByCarId(car.getId());
+        System.out.println(repairNum);
+
+        double discountPercent = QuantityDiscountService.getDiscountPercent(repairNum, car.getMotorType());
+        Long discount = (long) (price*discountPercent);
+        newRepairHistory.setDiscount(discount);
+
+        Long total = price+rechargues-discount;
+        Long totalIva = (long) (total*IVA);
+        
+        newRepairHistory.setTotalAmount(total+totalIva);
+        return saveRepairHistory(newRepairHistory);
     }
 
     // Read
@@ -53,6 +73,11 @@ public class RepairHistoryService {
     public RepairHistoryEntity getRepairHistoryById(Long id) {
         return repairHistoryRepository.findById(id).orElse(null);
     }
+
+    public int getTotalRepairsByCarId(Long carId) {
+        return repairHistoryRepository.getTotalRepairsByCarId(carId);
+    }
+
 
     // Update
     public RepairHistoryEntity updateRepairHistory(RepairHistoryEntity repairHistory) throws Exception{

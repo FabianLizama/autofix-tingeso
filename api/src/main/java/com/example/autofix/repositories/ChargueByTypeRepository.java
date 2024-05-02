@@ -20,8 +20,7 @@ public interface ChargueByTypeRepository extends JpaRepository<ChargueByTypeEnti
         "ELSE NULL " +
         "END as recargo_percent " +
         "FROM chargue_by_type " +
-        "WHERE :km >= km_start " +
-        "AND :km <= km_end;", nativeQuery = true)
+        "WHERE (:km >= km_start AND :km <= km_end) OR (km_end = -1 AND :km >= km_start AND km_start != -1);", nativeQuery = true)
     public double getChargueKmByType(@Param("km") int km, @Param("tipo_auto") String tipo_auto);
     
     @Query(value="SELECT CASE :tipo_auto " +
@@ -33,7 +32,6 @@ public interface ChargueByTypeRepository extends JpaRepository<ChargueByTypeEnti
         "ELSE NULL " +
         "END as recargo_percent " +
         "FROM chargue_by_type " +
-        "WHERE :antiq >= antiq_start " +
-        "AND :antiq <= antiq_end;", nativeQuery = true)
-    public double getChargueAntiqByType(@Param("antiq") int antiq, @Param("tipo_auto") String tipo_auto);
+        "WHERE (:antiq >= antiq_start AND :antiq <= antiq_end) OR (antiq_end = -1 AND :antiq >= antiq_start AND antiq_start != -1);", nativeQuery = true)
+    public Double getChargueAntiqByType(@Param("antiq") int antiq, @Param("tipo_auto") String tipo_auto);
 }

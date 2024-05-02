@@ -25,6 +25,13 @@ public class QuantityDiscountService {
         return quantityDiscountRepository.findById(id).orElse(null);
     }
 
+    public double getDiscountPercent(int repairNum, String motorType){
+        if (repairNum == 0){
+            return 0;
+        }
+        return quantityDiscountRepository.getDiscountPercent(repairNum, motorType);
+    }
+
     // Update
     public QuantityDiscountEntity updateQuantityDiscount(QuantityDiscountEntity quantityDiscount) throws Exception{
         try{

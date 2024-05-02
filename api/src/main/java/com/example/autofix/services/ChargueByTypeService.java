@@ -38,7 +38,7 @@ public class ChargueByTypeService {
         return chargueByTypeRepository.getChargueKmByType(km, type);
     }
 
-    public double getChargueAntiqByType(int antiq, String type) {
+    public Double getChargueAntiqByType(int antiq, String type) {
         return chargueByTypeRepository.getChargueAntiqByType(antiq, type);
     }
 
