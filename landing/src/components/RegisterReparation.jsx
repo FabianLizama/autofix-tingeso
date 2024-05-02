@@ -118,7 +118,7 @@ function RegisterReparation() {
           </Select>
         </FormControl>
         <Button type="submit" variant="contained" color="primary">
-          Registrar
+          Registrar reparación
         </Button>
       </form>
     </Container>
