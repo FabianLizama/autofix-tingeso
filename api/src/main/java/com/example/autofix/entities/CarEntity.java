@@ -27,6 +27,7 @@ public class CarEntity {
     private int numSeats;
     private String rut;
     private String nameOwner;
+    private int km;
 
     @Override
     @Generated

@@ -34,6 +34,14 @@ public class ChargueByTypeService {
         return chargueByTypeRepository.findById(id).orElse(null);
     }
 
+    public double getChargueKmByType(int km, String type) {
+        return chargueByTypeRepository.getChargueKmByType(km, type);
+    }
+
+    public double getChargueAntiqByType(int antiq, String type) {
+        return chargueByTypeRepository.getChargueAntiqByType(antiq, type);
+    }
+
     // Update
     public ChargueByTypeEntity updateChargueByType(ChargueByTypeEntity chargueByType) throws Exception{
         try{

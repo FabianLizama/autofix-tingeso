@@ -8,4 +8,5 @@ import com.example.autofix.entities.CarEntity;
 @Repository
 public interface CarRepository extends JpaRepository<CarEntity, Long>{
     CarEntity findByLicensePlate(String licensePlate);
+    
 }

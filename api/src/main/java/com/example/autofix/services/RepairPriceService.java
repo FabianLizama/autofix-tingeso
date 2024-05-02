@@ -25,6 +25,21 @@ public class RepairPriceService {
         return RepairPriceRepository.findById(id).orElse(null);
     }
 
+    public int getRepairPriceByRepairType(Long repairTypeId, String motorType) {
+        RepairPriceEntity repairPrice = RepairPriceRepository.findByRepairTypeId(repairTypeId);
+        if (motorType.equals("gasoline")){
+            return repairPrice.getGasolinePrice();
+        } else if (motorType.equals("diesel")){
+            return repairPrice.getDieselPrice();
+        } else if (motorType.equals("electric")){
+            return repairPrice.getElectricPrice();
+        } else if (motorType.equals("hybrid")){
+            return repairPrice.getHybridPrice();
+        } else {
+            return 0;
+        }
+    }
+
     // Update
     public RepairPriceEntity updateRepairPrice(RepairPriceEntity repairPrice) throws Exception{
         try{

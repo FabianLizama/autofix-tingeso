@@ -64,4 +64,8 @@ public class RepairPriceController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    public int getRepairPriceByRepairType(Long repairTypeId, String motorType) {
+        return repairPriceService.getRepairPriceByRepairType(repairTypeId, motorType);
+    }
 }

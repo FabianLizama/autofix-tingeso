@@ -6,5 +6,5 @@ import com.example.autofix.entities.RepairPriceEntity;
 
 @Repository
 public interface RepairPriceRepository extends JpaRepository<RepairPriceEntity, Long>{
-
+    public RepairPriceEntity findByRepairTypeId(Long repairTypeId);
 }

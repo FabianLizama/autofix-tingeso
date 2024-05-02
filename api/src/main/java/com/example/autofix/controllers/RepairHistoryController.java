@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,13 @@ public class RepairHistoryController {
         RepairHistoryEntity repairHistoryNew = repairHistoryService.saveRepairHistory(repairHistory);
         return ResponseEntity.ok(repairHistoryNew);
     }
+
+    @PostMapping("/register/{licensePlate}/{repairTypeId}")
+    public ResponseEntity<RepairHistoryEntity> registerRepair(@PathVariable String licensePlate, @PathVariable Long repairTypeId) {
+        RepairHistoryEntity repairHistoryNew = repairHistoryService.registerRepair(licensePlate, repairTypeId);
+        return ResponseEntity.ok(repairHistoryNew);
+    }
+    
 
     // Read
     @GetMapping("/")

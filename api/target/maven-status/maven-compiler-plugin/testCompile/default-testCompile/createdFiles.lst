@@ -1,1 +1,15 @@
+com\example\autofix\services\ChargueByTypeServiceTest.class
+com\example\autofix\services\QuantityDiscountServiceTest.class
+com\example\autofix\controllers\QuantityDiscountControllerTest.class
+com\example\autofix\controllers\RepairControllerTest.class
+com\example\autofix\services\RepairHistoryServiceTest.class
+com\example\autofix\services\CarServiceTest.class
+com\example\autofix\AutoFixApplicationTests.class
+com\example\autofix\repositories\ChargueByTypeRepositoryTest.class
 com\example\autofix\controllers\CarControllerTest.class
+com\example\autofix\controllers\ChargueByTypeControllerTest.class
+com\example\autofix\services\RepairServiceTest.class
+com\example\autofix\services\RepairPriceServiceTest.class
+com\example\autofix\controllers\RepairPriceControllerTest.class
+com\example\autofix\controllers\RepairHistoryControllerTest.class
+com\example\autofix\repositories\CarRepositoryTest.class
