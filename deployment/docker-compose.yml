@@ -48,7 +48,7 @@ services:
     container_name: autofix-backend-container-1
     image: fabianlizama/autofix-backend
     ports:
-      - 8091:8080
+      - 8091:8079
     environment:
       DB_HOST: autofix-mysql-container
       MYSQL_PASSWORD: 3220mA++
@@ -63,7 +63,7 @@ services:
     container_name: autofix-backend-container-2
     image: fabianlizama/autofix-backend
     ports:
-      - 8092:8080
+      - 8092:8079
     environment:
       DB_HOST: autofix-mysql-container
       MYSQL_PASSWORD: 3220mA++
@@ -78,7 +78,7 @@ services:
     container_name: autofix-backend-container-3
     image: fabianlizama/autofix-backend
     ports:
-      - 8093:8080
+      - 8093:8079
     environment:
       DB_HOST: autofix-mysql-container
       MYSQL_PASSWORD: 3220mA++
