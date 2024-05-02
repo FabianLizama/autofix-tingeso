@@ -1,4 +1,4 @@
-import { FormControl, MenuItem, Select, TextField, InputLabel, Container, Box, Typography, Button } from "@mui/material";
+import { FormControl, MenuItem, Select, TextField, InputLabel, Container, Box, Typography, Button, Alert } from "@mui/material";
 import { useState } from "react";
 import carService from "../services/car.service";
 
@@ -16,6 +16,8 @@ function RegisterCar() {
     numSeats: "",
   });
 
+  const [alert, setAlert] = useState({ show: false, message: "" });
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({
@@ -24,10 +26,24 @@ function RegisterCar() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    carService.create(formData);
+    try {
+      const response = await carService.create(formData);
+      console.log(response);
+      setAlert({
+        show: true,
+        message: "El vehículo ha sido registrado exitosamente.",
+      });
+    } catch (error) {
+      console.error("Error al registrar el vehículo:", error);
+      setAlert({
+        show: true,
+        message: "Error al registrar el vehículo. Intente nuevamente.",
+      });
+    }
   };
+
 
   return (
     <Container
@@ -39,6 +55,11 @@ function RegisterCar() {
       }}
     >
       <form onSubmit={handleSubmit}>
+        {alert.show && (
+          <Alert severity="success" style={{ marginBottom: "20px" }}>
+            {alert.message}
+          </Alert>
+        )}
         <Typography variant="h4" component="h1" gutterBottom>
           Registrar vehículo
         </Typography>
@@ -78,7 +99,15 @@ function RegisterCar() {
           value={formData.licensePlate}
           onChange={handleChange}
         />
-        <TextField name="brand" label="Marca" variant="outlined" margin="normal" fullWidth value={formData.brand} onChange={handleChange}/>
+        <TextField
+          name="brand"
+          label="Marca"
+          variant="outlined"
+          margin="normal"
+          fullWidth
+          value={formData.brand}
+          onChange={handleChange}
+        />
         <TextField
           name="model"
           label="Modelo"
