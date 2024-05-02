@@ -52,7 +52,6 @@ public class RepairHistoryService {
         newRepairHistory.setRechargues(rechargues);
 
         int repairNum = getTotalRepairsByCarId(car.getId());
-        System.out.println(repairNum);
 
         double discountPercent = QuantityDiscountService.getDiscountPercent(repairNum, car.getMotorType());
         Long discount = (long) (price*discountPercent);
@@ -76,6 +75,22 @@ public class RepairHistoryService {
 
     public int getTotalRepairsByCarId(Long carId) {
         return repairHistoryRepository.getTotalRepairsByCarId(carId);
+    }
+
+    public ArrayList<Object[]> getAllRepairsCosts() {
+        return repairHistoryRepository.getAllRepairsCosts();
+    }
+
+    public ArrayList<Object[]> getReport2() {
+        return repairHistoryRepository.getReport2();
+    }
+
+    public ArrayList<Object[]> getReport3() {
+        return repairHistoryRepository.getReport3();
+    }
+
+    public ArrayList<Object[]> getReport4() {
+        return repairHistoryRepository.getReport4();
     }
 
 

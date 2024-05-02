@@ -51,6 +51,26 @@ public class RepairHistoryController {
         return ResponseEntity.ok(repairHistoryService.getRepairHistoryById(id));
     }
 
+    @GetMapping("/get-all-repairs-costs")
+    public ResponseEntity<ArrayList<Object[]>> getAllRepairsCosts() {
+        return ResponseEntity.ok(repairHistoryService.getAllRepairsCosts());
+    }
+    
+    @GetMapping("/get-report-2")
+    public ResponseEntity<ArrayList<Object[]>> getReport2() {
+        return ResponseEntity.ok(repairHistoryService.getReport2());
+    }
+
+    @GetMapping("/get-report-3")
+    public ResponseEntity<ArrayList<Object[]>> getReport3() {
+        return ResponseEntity.ok(repairHistoryService.getReport3());
+    }
+
+    @GetMapping("/get-report-4")
+    public ResponseEntity<ArrayList<Object[]>> getReport4() {
+        return ResponseEntity.ok(repairHistoryService.getReport4());
+    }
+
     // Update
     @PutMapping("/")
     public ResponseEntity<RepairHistoryEntity> updateRepairHistory(@RequestBody RepairHistoryEntity repairHistory) throws Exception{
