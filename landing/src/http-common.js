@@ -7,7 +7,7 @@ console.log(backendServer);
 console.log(backendPort);
 
 export default axios.create({
-  baseURL: `http://${backendServer}:${backendPort}`,
+  baseURL: `http://localhost:8079`,
   headers: {
     "Content-Type": "application/json",
   },
