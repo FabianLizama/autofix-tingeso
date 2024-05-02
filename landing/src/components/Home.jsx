@@ -1,8 +1,8 @@
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      <p>Welcome to the homepage</p>
+      <h1>Bienvenido</h1>
+      <p>Puedes navegar por la aplicación con la barra de la izquierda, inténtalo</p>
     </div>
   )
 }

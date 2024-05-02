@@ -190,6 +190,15 @@ export default function NavBar() {
               (text, index) => (
                 <ListItem key={text} disablePadding sx={{ display: "block" }}>
                   <ListItemButton
+                    onClick={() => {
+                      if (index === 0)
+                        navigate("/report1");
+                      else if (index === 1)
+                        navigate("/report2");
+                      else if (index === 2)
+                        navigate("/report3");
+                      else navigate("/report4");
+                    }}
                     sx={{
                       minHeight: 48,
                       justifyContent: open ? "initial" : "center",
@@ -213,33 +222,6 @@ export default function NavBar() {
                 </ListItem>
               )
             )}
-          </List>
-          <Divider />
-          <List>
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                onClick={() => navigate("/quote")}
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  <RequestQuoteIcon />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Bonos"
-                  sx={{ opacity: open ? 1 : 0 }}
-                />
-              </ListItemButton>
-            </ListItem>
           </List>
         </Drawer>
       </Box>
