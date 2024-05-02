@@ -151,7 +151,7 @@ export default function NavBar() {
           </DrawerHeader>
           <Divider />
           <List>
-            {["Registrar Reparación", "Registrar Vehículo"].map(
+            {["Registrar Reparación", "Registrar Vehículos"].map(
               (text, index) => (
                 <ListItem key={text} disablePadding sx={{ display: "block" }}>
                   <ListItemButton
