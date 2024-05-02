@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import repairService from "../services/repair.service";
+import repairHistoryService from "../services/repair-history.service";
 
 function RegisterReparation() {
   const [repairTypes, setRepairTypes] = useState([]);
@@ -39,9 +40,10 @@ function RegisterReparation() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+    const response = await repairHistoryService.createRepair(formData.licensePlate, formData.repairTypeId);
+    console.log(response);
   };
 
   return (
